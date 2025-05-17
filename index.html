@@ -1,36 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>2048 Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game - AI Enhanced</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Clear+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="game-container">
         <div id="home-menu">
             <h1>2048</h1>
-            <button id="play-button">Play</button>
-            <button id="ai-play-button">AI Play</button>
+            <p class="subtitle">AI Enhanced Edition</p>
+            <button id="play-button" class="menu-button">Play Manually</button>
+            <button id="ai-play-button" class="menu-button">Watch AI Play</button>
         </div>
 
         <div id="game-area" class="hidden">
             <div class="header">
-                <h1>2048</h1>
+                <h1 class="game-title">2048</h1>
                 <div class="score-container">
                     Score: <span id="score">0</span>
                 </div>
             </div>
-            <div id="game-board"></div>
-            <div id="game-over-overlay" class="game-over-overlay">
-                Game Over!
+            <div id="game-board-container">
+                <div id="game-board"></div>
+                <div id="game-over-overlay" class="overlay">
+                    <p>Game Over!</p>
+                    <button id="restart-button-gameover" class="overlay-button">Try Again</button>
+                    <button id="menu-button-gameover" class="overlay-button">Main Menu</button>
+                </div>
+                <div id="winning-overlay" class="overlay">
+                    <p>You Win!</p>
+                    <button id="continue-button-win" class="overlay-button">Keep Going</button>
+                    <button id="restart-button-win" class="overlay-button">New Game</button>
+                    <button id="menu-button-win" class="overlay-button">Main Menu</button>
+                </div>
             </div>
-            <div id="winning-overlay" class="winning-overlay">
-                You Win!
+             <div class="controls-info">
+                <p>Use arrow keys to move tiles. Press 'M' to return to Menu.</p>
             </div>
         </div>
 
-        <div id="ai-visualizer" class="hidden">
-            <h2>Neural Network Visualizer</h2>
-            <canvas id="nn-canvas"></canvas>
+        <div id="ai-controls-visualizer-container" class="hidden">
+            <div id="ai-game-area">
+                 <div class="header">
+                    <h1 class="game-title">2048 (AI)</h1>
+                    <div class="score-container">
+                        Score: <span id="ai-score">0</span>
+                    </div>
+                </div>
+                <div id="ai-game-board-container">
+                    <div id="ai-game-board"></div>
+                     <div id="ai-game-over-overlay" class="overlay">
+                        <p>AI Game Over!</p>
+                        <button id="ai-restart-button-gameover" class="overlay-button">Restart AI</button>
+                        <button id="ai-menu-button-gameover" class="overlay-button">Main Menu</button>
+                    </div>
+                    <div id="ai-winning-overlay" class="overlay">
+                        <p>AI Wins!</p>
+                        <button id="ai-continue-button-win" class="overlay-button">AI Keep Going</button>
+                        <button id="ai-restart-button-win" class="overlay-button">Restart AI</button>
+                        <button id="ai-menu-button-win" class="overlay-button">Main Menu</button>
+                    </div>
+                </div>
+                 <div class="controls-info">
+                    <p>AI is playing. Press 'M' to return to Menu.</p>
+                </div>
+            </div>
+            <div id="ai-visualizer">
+                <h2>Neural Network Visualizer</h2>
+                <canvas id="nn-canvas"></canvas>
+                <div id="ai-speed-control">
+                    <label for="ai-speed-slider">AI Speed:</label>
+                    <input type="range" id="ai-speed-slider" min="50" max="2000" value="500" step="50">
+                    <span id="ai-speed-value">500 ms</span>
+                </div>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
