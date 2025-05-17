@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="home-menu">
+            <h1>2048</h1>
+            <button id="play-button">Play</button>
+            <button id="ai-play-button">AI Play</button>
+        </div>
+
+        <div id="game-area" class="hidden">
+            <div class="header">
+                <h1>2048</h1>
+                <div class="score-container">
+                    Score: <span id="score">0</span>
+                </div>
+            </div>
+            <div id="game-board"></div>
+            <div id="game-over-overlay" class="game-over-overlay">
+                Game Over!
+            </div>
+            <div id="winning-overlay" class="winning-overlay">
+                You Win!
+            </div>
+        </div>
+
+        <div id="ai-visualizer" class="hidden">
+            <h2>Neural Network Visualizer</h2>
+            <canvas id="nn-canvas"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
